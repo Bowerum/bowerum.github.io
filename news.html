@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Corundium - Новости</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Logo" height="80" />
+                Corundium
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="game.html">Об игре</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Команда</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Галерея</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="news.html">Новости</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <h1 class="text-center mb-3">Новости</h1>
+        <p class="text-center mb-5">
+            Последние обновления, анонсы и события из разработки <strong>Corundium</strong>.
+        </p>
+
+        <div id="news-container">
+        </div>
+    </div>
+
+    <script src="javascript/news.js"></script>
+
+    <script>
+        const container = document.getElementById("news-container");
+
+        newsList.forEach(news => {
+            const col = document.createElement("div");
+            col.className = "mb-4";
+            col.innerHTML = `
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">${news.title}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted text-center">${news.date}</h6>
+                        <p class="card-text">${news.text}</p>
+                    </div>
+                </div>
+            `;
+
+            container.appendChild(col);
+        });
+    </script>
+
+    <footer class="py-4 bg-black text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Corundium</h5>
+                    <p>Кооперативная игра с открытым миром</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Соцсети</h5>
+                    <a href="https://t.me/devfuckers" target="_blank" class="text-white me-2">Telegram</a>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Контакты</h5>
+                    <p>Email: corundium@outlook.com</p>
+                    <p>© 2025 Corundium Team</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
